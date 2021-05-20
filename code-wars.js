@@ -1,5 +1,26 @@
 // ***CODE WARS***
 
+//*** Highest and Lowest
+//https://www.codewars.com/kata/554b4ac871d6813a03000035/train/javascript
+
+function highAndLow(numbers) {
+  let arrNumStr = numbers.split(" ");
+  let arrNumNum = [];
+  for (let i = 0; i < arrNumStr.length; i++) {
+    arrNumNum.push(parseInt(arrNumStr[i]));
+  }
+  let max = Math.max(...arrNumNum).toString();
+  let min = Math.min(...arrNumNum).toString();
+  return `${max} ${min}`;
+}
+
+// best practice
+
+function highAndLow(numbers) {
+  numbers = numbers.split(" ");
+  return `${Math.max(...numbers)} ${Math.min(...numbers)}`;
+}
+
 // *** Square every digit
 // https://www.codewars.com/kata/546e2562b03326a88e000020/train/javascript
 // this is the first one I solved without "testing" it before!
