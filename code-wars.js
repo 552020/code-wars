@@ -1,6 +1,67 @@
 // ***CODE WARS***
 
-// Who likes it?
+// Sum of Digits / Digital Root
+// https://www.codewars.com/kata/541c8630095125aba6000c00/train/javascript
+
+function digital_root(n) {
+  let nNumber = n;
+
+  let nReduced;
+  do {
+    let nArr = [];
+    nString = nNumber.toString();
+    for (let i = 0; i < nString.length; i++) {
+      nArr.push(parseInt(nString.charAt(i)));
+    }
+    const reducer = (accumulator, currentValue) => accumulator + currentValue;
+    nReduced = nArr.reduce(reducer);
+    nNumber = nReduced;
+  } while (nNumber >= 10);
+  return nReduced;
+}
+
+// Best practice but more clever than best practice
+// https://www.sjsu.edu/faculty/watkins/Digitsum00.htm
+
+function digital_root(n) {
+  return ((n - 1) % 9) + 1;
+}
+
+// and a human one
+
+function digital_root(n) {
+  if (n < 10) return n;
+
+  return digital_root(
+    n
+      .toString()
+      .split("")
+      .reduce(function (acc, d) {
+        return acc + +d;
+      }, 0)
+  );
+}
+
+// *** Get the Middles Character
+// https://www.codewars.com/kata/56747fd5cb988479af000028/train/javascript
+
+function getMiddle(s) {
+  if (s.length % 2 === 0) {
+    let i = s.length / 2;
+    return `${s.charAt(i - 1)}${s.charAt(i)}`;
+  } else {
+    let i = Math.ceil(s.length / 2) - 1;
+    return s.charAt(i);
+  }
+}
+
+// best practice and most clever
+
+function getMiddle(s) {
+  return s.substr(Math.ceil(s.length / 2 - 1), s.length % 2 === 0 ? 2 : 1);
+}
+
+// *** Who likes it? ***
 // https://www.codewars.com/kata/5266876b8f4bf2da9b000362/train/javascript
 
 function likes(names) {
