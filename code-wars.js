@@ -1,4 +1,16 @@
 // ***CODE WARS***
+
+// Create Phone Number
+// https://www.codewars.com/kata/525f50e3b73515a6db000b83/train/javascript
+
+function createPhoneNumber(numbers) {
+  let arrPhoneNumber = ["(", 1, 2, 3, ")", " ", 4, 5, 6, "-", 7, 8, 9, 0];
+  arrPhoneNumber.splice(1, 3, numbers[0], numbers[1], numbers[2]);
+  arrPhoneNumber.splice(6, 3, numbers[3], numbers[4], numbers[5]);
+  arrPhoneNumber.splice(10, 4, numbers[6], numbers[7], numbers[8], numbers[9]);
+  return arrPhoneNumber.join("");
+}
+
 // Vowel Count
 // https://www.codewars.com/kata/54ff3102c1bad923760001f3/javascript
 
