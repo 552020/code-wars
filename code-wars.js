@@ -1,5 +1,63 @@
 // ***CODE WARS***
 
+// Who likes it?
+// https://www.codewars.com/kata/5266876b8f4bf2da9b000362/train/javascript
+
+function likes(names) {
+  if (names.length === 0) {
+    return "no one likes this";
+  } else if (names.length === 1) {
+    return `${names[0]} likes this`;
+  } else if (names.length === 2) {
+    return `${names[0]} and ${names[1]} like this`;
+  } else if (names.length === 3) {
+    return `${names[0]}, ${names[1]} and ${names[2]} like this`;
+  } else {
+    return `${names[0]}, ${names[1]} and ${names.length - 2} others like this`;
+  }
+}
+
+// Best practice - all the most voted solutions used switch instead of if
+
+function likes(names) {
+  names = names || [];
+  switch (names.length) {
+    case 0:
+      return "no one likes this";
+      break;
+    case 1:
+      return names[0] + " likes this";
+      break;
+    case 2:
+      return names[0] + " and " + names[1] + " like this";
+      break;
+    case 3:
+      return names[0] + ", " + names[1] + " and " + names[2] + " like this";
+      break;
+    default:
+      return (
+        names[0] +
+        ", " +
+        names[1] +
+        " and " +
+        (names.length - 2) +
+        " others like this"
+      );
+  }
+}
+
+// Most clever solution - I had to study it but finally I got it. An object is created with four properties, which have as a value the sentence we want return as template literal. The square brackets after the closing curly bracket is the identfier of the property we want to access and return.
+
+function likes(names) {
+  return {
+    0: "no one likes this",
+    1: `${names[0]} likes this`,
+    2: `${names[0]} and ${names[1]} like this`,
+    3: `${names[0]}, ${names[1]} and ${names[2]} like this`,
+    4: `${names[0]}, ${names[1]} and ${names.length - 2} others like this`,
+  }[Math.min(4, names.length)];
+}
+
 // Create Phone Number
 // https://www.codewars.com/kata/525f50e3b73515a6db000b83/train/javascript
 
@@ -11,7 +69,32 @@ function createPhoneNumber(numbers) {
   return arrPhoneNumber.join("");
 }
 
-// Vowel Count
+// Best practice 1
+function createPhoneNumber(numbers) {
+  numbers = numbers.join("");
+  return (
+    "(" +
+    numbers.substring(0, 3) +
+    ") " +
+    numbers.substring(3, 6) +
+    "-" +
+    numbers.substring(6)
+  );
+}
+
+// Best practice 2 - this one got much more clever votes (2267 vs 343) in comparison to the first one
+
+function createPhoneNumber(numbers) {
+  var format = "(xxx) xxx-xxxx";
+
+  for (var i = 0; i < numbers.length; i++) {
+    format = format.replace("x", numbers[i]);
+  }
+
+  return format;
+}
+
+//### Vowel Count ###
 // https://www.codewars.com/kata/54ff3102c1bad923760001f3/javascript
 
 function getCount(str) {
