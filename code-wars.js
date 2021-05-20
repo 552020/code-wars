@@ -1,5 +1,16 @@
 // ***CODE WARS***
 
+// *** You're square!
+// https://www.codewars.com/kata/54c27a33fb7da0db0100040e/train/javascript
+
+const isSquare = (n) => (Number.isInteger(Math.sqrt(n)) ? true : false);
+
+// best practice and most clever
+
+function isSquare(n) {
+  return Math.sqrt(n) % 1 === 0;
+}
+
 //*** Highest and Lowest
 //https://www.codewars.com/kata/554b4ac871d6813a03000035/train/javascript
 
