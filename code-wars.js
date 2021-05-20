@@ -1,6 +1,37 @@
 // ***CODE WARS***
 
-// Sum of Digits / Digital Root
+// *** Square every digit
+// https://www.codewars.com/kata/546e2562b03326a88e000020/train/javascript
+// this is the first one I solved without "testing" it before!
+
+function squareDigits(num) {
+  let numArr = [];
+  let numArrPower = [];
+  numString = num.toString();
+  for (let i = 0; i < numString.length; i++) {
+    numArr.push(parseInt(numString.charAt(i)));
+  }
+  for (let j = 0; j < numArr.length; j++) {
+    let numPower = numArr[j] * numArr[j];
+    numArrPower.push(numPower);
+  }
+  return parseInt(numArrPower.join(""));
+}
+
+// best practice and most clever
+
+function squareDigits(num) {
+  return Number(
+    ("" + num)
+      .split("")
+      .map(function (val) {
+        return val * val;
+      })
+      .join("")
+  );
+}
+
+// *** Sum of Digits / Digital Root
 // https://www.codewars.com/kata/541c8630095125aba6000c00/train/javascript
 
 function digital_root(n) {
