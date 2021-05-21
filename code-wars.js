@@ -1,5 +1,59 @@
 // ***CODE WARS***
 
+// Convert number to reversed array of digits
+// https://www.codewars.com/kata/5583090cbe83f4fd8c000051/train/javascript
+
+function digitize(num) {
+  let newNumber = [];
+  let passedNumber = num;
+  console.log(passedNumber);
+  while (passedNumber > 0) {
+    newNumber.push(passedNumber % 10);
+    console.log(newNumber);
+    passedNumber = parseInt(passedNumber / 10);
+  }
+
+  return newNumber;
+}
+
+// best practice
+
+function digitize(n) {
+  return String(n).split("").map(Number).reverse();
+}
+
+// Stop gninnipS My sdroW!
+// https://www.codewars.com/kata/5264d2b162488dc400000001/train/javascript
+
+function spinWords(string) {
+  spinArr = string.split(" ");
+
+  let spinNew = [];
+  for (let i = 0; i < spinArr.length; i++) {
+    if (spinArr[i].length >= 5) {
+      let reversedWord = [];
+      for (let j = 0; j < spinArr[i].length; j++) {
+        reversedWord.unshift(spinArr[i].charAt(j));
+      }
+      spinNew.push(reversedWord.join(""));
+    } else {
+      spinNew.push(spinArr[i]);
+    }
+  }
+  return spinNew.join(" ");
+}
+
+// best practice
+
+function spinWords(words) {
+  return words
+    .split(" ")
+    .map(function (word) {
+      return word.length > 4 ? word.split("").reverse().join("") : word;
+    })
+    .join(" ");
+}
+
 // *** You're square!
 // https://www.codewars.com/kata/54c27a33fb7da0db0100040e/train/javascript
 
