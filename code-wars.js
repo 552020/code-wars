@@ -1,6 +1,51 @@
 // ***CODE WARS***
 
-// Disemvowel Trolls
+// Find the odd int
+// https://www.codewars.com/kata/54da5a58ea159efa38000836/train/javascript
+
+function findOdd(arrA) {
+  for (const elA of arrA) {
+    let arrB = [];
+    for (const elB of arrA) {
+      if (elA === elB) {
+        arrB.push(elA);
+      }
+    }
+    if (arrB.length % 2 !== 0) {
+      return elA;
+    }
+  }
+}
+
+// first solution I found
+
+function findOdd(arrA) {
+  for (let i = 0; i < arrA.length; i++) {
+    arrB = [];
+    for (let j = 0; j < arrA.length; j++) {
+      if (arrA[i] === arrA[j]) {
+        arrB.push(arrA[i]);
+      }
+    }
+    if (arrB.length % 2 !== 0) {
+      return arrA[i];
+    }
+  }
+}
+
+// best practice and most clever
+// ^ is the Bitwise XOR operator
+//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_XOR
+
+const findOdd = (xs) => xs.reduce((a, b) => a ^ b);
+
+// first one I can understand
+
+function findOdd(arr) {
+  return arr.find((item, index) => arr.filter((el) => el == item).length % 2);
+}
+
+// *** Disemvowel Trolls
 // https://www.codewars.com/kata/52fba66badcd10859f00097e/train/javascript
 
 function disemvowel(str) {
