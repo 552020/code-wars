@@ -1,5 +1,35 @@
 // ***CODE WARS***
 
+// Disemvowel Trolls
+// https://www.codewars.com/kata/52fba66badcd10859f00097e/train/javascript
+
+function disemvowel(str) {
+  let re = new RegExp(/[aeiou]+/gi);
+  return str.replace(re, "");
+}
+
+// Note - my solution with str.replaceAll didn't work cause replaceAll is too new probably
+
+function disemvowel(str) {
+  return str
+    .replaceAll("a", "")
+    .replaceAll("A", "")
+    .replaceAll("e", "")
+    .replaceAll("E", "")
+    .replaceAll("i", "")
+    .replaceAll("I", "")
+    .replaceAll("o", "")
+    .replaceAll("a", "")
+    .replaceAll("u", "")
+    .replaceAll("U", "");
+}
+
+// best practice
+
+function disemvowel(str) {
+  return str.replace(/[aeiou]/gi, "");
+}
+
 // Find the smallest integer in the array - 8kyu
 // https://www.codewars.com/kata/55a2d7ebe362935a210000b2/train/javascript
 
