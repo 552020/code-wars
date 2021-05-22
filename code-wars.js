@@ -1,6 +1,17 @@
 // ***CODE WARS***
 
-// Convert number to reversed array of digits
+// Find the smallest integer in the array - 8kyu
+// https://www.codewars.com/kata/55a2d7ebe362935a210000b2/train/javascript
+
+class SmallestIntegerFinder {
+  findSmallestInt(args) {
+    return Math.min(...args);
+  }
+}
+
+// My solution was also the best practice and most clever solution 🎉
+
+// *** Convert number to reversed array of digits
 // https://www.codewars.com/kata/5583090cbe83f4fd8c000051/train/javascript
 
 function digitize(num) {
