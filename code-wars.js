@@ -1,5 +1,51 @@
 // ***CODE WARS***
 
+// *** Grasshopper - Summation
+// https://www.codewars.com/kata/55d24f55d7dd296eb9000030/train/javascript
+
+var summation = function (num) {
+  let sum = 1;
+  for (let i = 2; i < num + 1; i++) {
+    sum = sum + i;
+  }
+  return sum;
+};
+
+// best practice - not so different from mine
+
+var summation = function (num) {
+  let result = 0;
+  for (var i = 1; i <= num; i++) {
+    result += i;
+  }
+
+  return result;
+};
+
+// most clever
+
+const summation = (n) => (n * (n + 1)) / 2;
+
+// ***  Simple Pig Latin
+// https://www.codewars.com/kata/520b9d2ad5c005041100000f/train/javascript
+
+function pigIt(str) {
+  return (newStrArr = str
+    .split(" ")
+    .map((word) =>
+      !/[.,\/#!?$%\^&\*;:{}=\-_`~()]/g.test(word)
+        ? word.slice(1) + word.slice(0, 1) + "ay"
+        : word
+    )
+    .join(" "));
+}
+
+// best practice
+
+function pigIt(str) {
+  return str.replace(/(\w)(\w*)(\s|$)/g, "$2$1ay$3");
+}
+
 // Find the odd int
 // https://www.codewars.com/kata/54da5a58ea159efa38000836/train/javascript
 
