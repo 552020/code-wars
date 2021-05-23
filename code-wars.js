@@ -1,5 +1,30 @@
 // ***CODE WARS***
 
+// Descending Order
+// https://www.codewars.com/kata/5467e4d82edf8bbf40000155/train/javascript
+
+function descendingOrder(n) {
+  nStr = n.toString();
+
+  nArr = [];
+  for (i = 0; i < nStr.length; i++) {
+    nArr.push(nStr[i]);
+  }
+
+  newArr = [];
+  for (let i = 0; i < nStr.length; i++) {
+    newArr.push(Math.max(...nArr));
+    nArr.splice(nArr.indexOf(Math.max(...nArr).toString()), 1);
+  }
+  return Number(newArr.join(""));
+}
+
+// best practice
+
+function descendingOrder(n) {
+  return parseInt(String(n).split("").sort().reverse().join(""));
+}
+
 // *** Grasshopper - Summation
 // https://www.codewars.com/kata/55d24f55d7dd296eb9000030/train/javascript
 
