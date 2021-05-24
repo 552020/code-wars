@@ -1,6 +1,15 @@
 // ***CODE WARS***
 
-// Descending Order
+// Bit Counting
+// https://www.codewars.com/kata/526571aae218b8ee490006f4/train/javascript
+
+const countBits = (n) => (n === 0 ? 0 : n.toString(2).match(/1/g).length);
+
+// best practice
+
+countBits = (n) => n.toString(2).split("0").join("").length;
+
+// *** Descending Order
 // https://www.codewars.com/kata/5467e4d82edf8bbf40000155/train/javascript
 
 function descendingOrder(n) {
