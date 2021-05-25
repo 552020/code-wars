@@ -1,5 +1,59 @@
 // ***CODE WARS***
 
+// Remonving String Spaces
+// https://www.codewars.com/kata/57eae20f5500ad98e50002c5/train/javascript
+
+noSpace = (x) => x.replace(/\s+/g, "");
+
+// second best without regex
+
+function noSpace(x) {
+  return x.split(" ").join("");
+}
+
+// third best with another regex expression
+
+const noSpace = (x) => x.replace(/ /g, "");
+
+// Moving Zeros To The End
+// https://www.codewars.com/kata/52597aa56021e91c93000cb0/train/javascript
+
+const moveZeros = function (arr) {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === 0) {
+      arr.push(arr[i]);
+      arr.splice(i, 1);
+    }
+  }
+  return arr;
+};
+
+// my second solution
+
+const moveZeros = function (arr) {
+  for (const i of arr) {
+    if (i === 0) {
+      arr.push(i);
+      arr.splice(arr.indexOf(i), 1);
+    }
+  }
+  return arr;
+};
+
+// best practice and most clever
+
+var moveZeros = function (arr) {
+  return arr
+    .filter(function (x) {
+      return x !== 0;
+    })
+    .concat(
+      arr.filter(function (x) {
+        return x === 0;
+      })
+    );
+};
+
 // Bit Counting
 // https://www.codewars.com/kata/526571aae218b8ee490006f4/train/javascript
 
