@@ -1,5 +1,58 @@
 // ***CODE WARS***
 
+// Where my anagrams at?
+// https://www.codewars.com/kata/523a86aa4230ebb5420001e1/train/javascript
+
+function anagrams(word, words) {
+  let arrAna = [];
+  for (let i = 0; i < words.length; i++) {
+    if (
+      word.split("").sort().toString() === words[i].split("").sort().toString()
+    ) {
+      arrAna.push(words[i]);
+    }
+  }
+  return arrAna;
+}
+
+// best practice - but actually not cause it changes a prototype
+
+String.prototype.sort = function () {
+  return this.split("").sort().join("");
+};
+
+function anagrams(word, words) {
+  return words.filter(function (x) {
+    return x.sort() === word.sort();
+  });
+}
+
+// I like this one
+
+let anagrams = (word, words) =>
+  words.filter(
+    (w) => w.split("").sort().join("") === word.split("").sort().join("")
+  );
+
+// Arry.diff
+// https://www.codewars.com/kata/523f5d21c841566fde000009/train/javascript
+
+function arrayDiff(a, b) {
+  let arrDiff = [];
+  for (let i = 0; i < a.length; i++) {
+    if (!b.includes(a[i])) {
+      arrDiff.push(a[i]);
+    }
+  }
+  return arrDiff;
+}
+
+// best practice
+
+function array_diff(a, b) {
+  return a.filter((e) => !b.includes(e));
+}
+
 // Mumbling
 // https://www.codewars.com/kata/5667e8f4e3f572a8f2000039/train/javascript
 
