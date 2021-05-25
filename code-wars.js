@@ -1,5 +1,31 @@
 // ***CODE WARS***
 
+// Mumbling
+// https://www.codewars.com/kata/5667e8f4e3f572a8f2000039/train/javascript
+
+function accum(s) {
+  let sArr = [];
+  let sArrMumb = [];
+  for (let i = 0; i < s.length; i++) {
+    sArr.push(s[i]);
+  }
+  for (let j = 0; j < sArr.length; j++) {
+    sArrMumb.push(sArr[j].toUpperCase());
+    sArrMumb.push(sArr[j].toLowerCase().repeat(j));
+    sArrMumb.push("-");
+  }
+  return sArrMumb.join("").slice(0, -1);
+}
+
+// best practice
+
+function accum(s) {
+  return s
+    .split("")
+    .map((c, i) => c.toUpperCase() + c.toLowerCase().repeat(i))
+    .join("-");
+}
+
 // Remonving String Spaces
 // https://www.codewars.com/kata/57eae20f5500ad98e50002c5/train/javascript
 
