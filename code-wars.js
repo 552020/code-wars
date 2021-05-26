@@ -2,6 +2,22 @@
 
 // ***CODE WARS***
 
+// Shortest Word
+// https://www.codewars.com/kata/57cebe1dc6fdc20c57000ac9/train/javascript
+
+function findShort(s) {
+  return Math.min(...s.split(" ").map((word) => word.length));
+}
+
+// best practice was like mine bur pre ES6
+// a good one among the first ones
+
+const findShort = (s) =>
+  s
+    .split(" ")
+    .sort((a, b) => b.length - a.length)
+    .pop().length;
+
 // Square(n) Sum
 // https://www.codewars.com/kata/515e271a311df0350d00000f/train/javascript
 
