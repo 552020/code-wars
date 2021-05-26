@@ -2,6 +2,29 @@
 
 // ***CODE WARS***
 
+// Find The Parity Outlier
+// https://www.codewars.com/kata/5526fc09a1bbd946250002dc/train/javascript
+
+function findOutlier(integers) {
+  let evenArr = [];
+  let oddArr = [];
+  for (let i = 0; i < integers.length; i++) {
+    if (integers[i] % 2 === 0) {
+      evenArr.push(integers[i]);
+    } else {
+      oddArr.push(integers[i]);
+    }
+  }
+  return oddArr.length < evenArr.length ? oddArr[0] : evenArr[0];
+}
+
+// best practice 
+
+function findOutlier(int){
+  var even = int.filter(a=>a%2==0);
+  var odd = int.filter(a=>a%2!==0);
+  return even.length==1? even[0] : odd[0];
+
 // Shortest Word
 // https://www.codewars.com/kata/57cebe1dc6fdc20c57000ac9/train/javascript
 
