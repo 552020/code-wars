@@ -1,4 +1,20 @@
+/** @format */
+
 // ***CODE WARS***
+
+// Square(n) Sum
+// https://www.codewars.com/kata/515e271a311df0350d00000f/train/javascript
+
+const squareSum = (numbers) =>
+  numbers.slice(1).reduce((a, c) => a + c ** 2, numbers[0] ** 2 || 0);
+
+// best practice
+
+function squareSum(numbers) {
+  return numbers.reduce(function (sum, n) {
+    return n * n + sum;
+  }, 0);
+}
 
 // Where my anagrams at?
 // https://www.codewars.com/kata/523a86aa4230ebb5420001e1/train/javascript
