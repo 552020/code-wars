@@ -2,6 +2,39 @@
 
 // ***CODE WARS***
 
+// Century From Year
+// https://www.codewars.com/kata/5a3fe3dde1ce0e8ed6000097/train/javascript
+const century = (year) => Number((year - 1).toString().slice(0, String(year).length - 2)) + 1;
+
+// best practice - shame on me!
+
+const century = year => Math.ceil(year/100)
+
+// Rot13
+//https://www.codewars.com/kata/530e15517bc88ac656000716/train/javascript
+
+function rot13(message) {
+
+	let arrAlpha = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w',  'x', 'y', 'z'];
+	let arrAlpha13 = ['n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w',  'x', 'y', 'z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm'];
+	let messageArr = []
+	messageArr = message.split('');
+	
+	let rot13Arr = [];
+	for (let i = 0; i < message.length; i++) {
+		
+		if (/[A-Za-z]/.test(messageArr[i])) {
+			
+			/[a-z]/.test(messageArr[i]) ? rot13Arr.push(arrAlpha13[arrAlpha.indexOf(messageArr[i].toLowerCase())]) : rot13Arr.push(arrAlpha13[arrAlpha.indexOf(messageArr[i].toLowerCase())].toUpperCase());
+		} else {
+			rot13Arr.push(messageArr[i])
+		}
+	}
+
+	return rot13Arr.join('');
+};
+
+
 // Find The Parity Outlier
 // https://www.codewars.com/kata/5526fc09a1bbd946250002dc/train/javascript
 
