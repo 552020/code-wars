@@ -1,5 +1,23 @@
 // ***CODE WARS***
 
+// Jaden Casing Strings - 7kyu // but really hard for the way it has been formulated
+// https://www.codewars.com/kata/5390bac347d09b7da40006f6/train/javascript
+String.prototype.toJadenCase = function () {
+  return this.split(' ').map(word => word.replace(word.charAt(0), word.charAt(0).toUpperCase())).join(' ')
+
+};
+
+// second best practice with Regex
+// explanation of the second parameter: The second param can either be a string (replace all instances of 'cat' with 'dog' - dog being second param), or a function, where the param of the function is a result of the match of the first param in .replace().
+
+// So .replace() is 1) a match on a string or regex, then returns new string based on 2) function or string of second param.
+
+// Hope this helps - if you have more Q's, I recommend https://regex101.com/ and https://developer.mozilla.org/
+String.prototype.toJadenCase = function () {
+  return this.replace(/(^|\s)[a-z]/g, function(x){ return x.toUpperCase(); });
+};
+// 
+
 // Counting sheep... 8kyu
 // https://www.codewars.com/kata/54edbc7200b811e956000556/train/javascript
 
