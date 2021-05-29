@@ -1,6 +1,22 @@
-/** @format */
-
 // ***CODE WARS***
+
+
+
+//Exes and Ohs
+// https://www.codewars.com/kata/55908aad6620c066bc00002a/train/javascript
+
+function XO(str) {
+  arrStr = str.toLowerCase().split('');
+  return arrStr.filter( char => char === 'o').length === arrStr.filter( char => char === 'x').length;
+}
+
+// best prective 
+
+function XO(str) {
+  let x = str.match(/x/gi);
+  let o = str.match(/o/gi);
+  return (x && x.length) === (o && o.length);
+}
 
 // Century From Year
 // https://www.codewars.com/kata/5a3fe3dde1ce0e8ed6000097/train/javascript
