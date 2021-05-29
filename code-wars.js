@@ -1,6 +1,16 @@
 // ***CODE WARS***
 
+// Counting sheep... 8kyu
+// https://www.codewars.com/kata/54edbc7200b811e956000556/train/javascript
 
+const countSheeps = (arrayOfSheep) => arrayOfSheep.filter(sheep => sheep === true).length
+
+// best practice
+// https://michaeluloth.com/filter-boolean
+
+function countSheeps(arrayOfSheeps) {
+  return arrayOfSheeps.filter(Boolean).length;
+}
 
 //Exes and Ohs
 // https://www.codewars.com/kata/55908aad6620c066bc00002a/train/javascript
