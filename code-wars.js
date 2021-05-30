@@ -1,5 +1,31 @@
 // ***CODE WARS***
 
+// Complementary DNA
+// https://www.codewars.com/kata/554e4a2f232cdd87d9000038/train/javascript
+
+const funcAT = (x) => x === 'A' ? 'T' : 'A' 
+const funcCG = (x) => x === 'C' ? 'G' : 'C'
+const DNAStrand = (dna) => dna.replace(/./g, (x) => (x === 'T' || x === 'A') ? funcAT(x) : funcCG(x))
+
+// best practice
+
+function DNAStrand(dna) {
+  return dna.replace(/./g, function(c) {
+    return DNAStrand.pairs[c]
+  })
+}
+
+DNAStrand.pairs = {
+  A: 'T',
+  T: 'A',
+  C: 'G',
+  G: 'C',
+}
+
+// the one I was looking for
+
+const DNAStrand = dna => dna.replace(/./g, m => 'CGAT'['GCTA'.indexOf(m)]);
+
 // Keep Hydrated!
 // https://www.codewars.com/kata/582cb0224e56e068d800003c/train/javascript
 
