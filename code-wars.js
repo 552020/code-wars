@@ -1,5 +1,34 @@
 // ***CODE WARS***
 
+// Keep Hydrated!
+// https://www.codewars.com/kata/582cb0224e56e068d800003c/train/javascript
+
+const litres = (time) => Math.floor(time / 2);
+
+// it was best practice
+// another variation
+
+function litres(time) {
+  return parseInt(time/2);
+}
+
+// Counting Duplicates
+// https://www.codewars.com/kata/54bf1c2cd5b56cc47f0007a1/train/javascript
+
+
+function duplicateCount(text){
+  let textLower = text.toLowerCase()
+  let duplicates = []
+  for (let i= 0; i < text.length; i++) {
+    for (let j= 0; j < text.length; j++) {
+      if (textLower[i] === textLower[j] && i !== j && !duplicates.includes(textLower[i])) {
+        duplicates.push(textLower[i])
+      }
+    }
+  }
+return duplicates.length;
+}
+
 // Jaden Casing Strings - 7kyu // but really hard for the way it has been formulated
 // https://www.codewars.com/kata/5390bac347d09b7da40006f6/train/javascript
 String.prototype.toJadenCase = function () {
