@@ -1,5 +1,34 @@
 // ***CODE WARS***
 
+// Basic Mathematical Operations
+// https://www.codewars.com/kata/57356c55867b9b7a60000bd7/train/javascript
+
+const basicOp = (op, val1, val2) => 
+{
+ switch (op) {
+    case '+': return val1 + val2;
+    case '-': return val1 - val2;
+    case '*': return val1 * val2;
+    case '/':  return val1 / val2;
+}  
+}
+
+// It was best practice! 
+
+// object oriented solution 
+
+function basicOp(operation, value1, value2)
+{
+  var cases = {
+    '+': value1 + value2,
+    '-': value1 - value2,
+    '*': value1 * value2,
+    '/': value1 / value2
+  };
+  return cases[operation]
+}
+
+
 // Complementary DNA
 // https://www.codewars.com/kata/554e4a2f232cdd87d9000038/train/javascript
 
