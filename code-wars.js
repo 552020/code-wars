@@ -1,5 +1,16 @@
 // ***CODE WARS***
 
+// List Filtering
+// https://www.codewars.com/kata/53dbd5315a3c69eed20002dd/train/javascript
+
+const filter_list = (l) => l.filter(x => (typeof x) !== 'string')
+
+// best practice solution - I didn't get completely why not strict equality
+
+function filter_list(l) {
+  return l.filter(function(v) {return typeof v == 'number'})
+}
+
 // Basic Mathematical Operations
 // https://www.codewars.com/kata/57356c55867b9b7a60000bd7/train/javascript
 
