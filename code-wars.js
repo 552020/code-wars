@@ -1,5 +1,16 @@
 // ***CODE WARS***
 
+// Is n divisible by x and y?
+// https://www.codewars.com/kata/5545f109004975ea66000086/train/javascript
+
+const isDivisible = (n, x, y) => n % x === 0 && n % y === 0 || false;
+
+// best practice // I was almost there - just the false was too much
+
+function isDivisible(n, x, y) {
+  return n % x === 0 && n % y === 0
+}
+
 // List Filtering
 // https://www.codewars.com/kata/53dbd5315a3c69eed20002dd/train/javascript
 
