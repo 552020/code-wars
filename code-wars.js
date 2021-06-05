@@ -1,5 +1,94 @@
 // ***CODE WARS***
 
+// Maximum subarray sum
+//  https://www.codewars.com/kata/54521e9ec8e60bc4de000d6c/train/javascript
+// Notes: first shot directly in the editor no errors
+
+var maxSequence = function(arr){
+  let maxSequenceArr = [0]
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = i + 1; j <= arr.length; j++) {
+     let sumSlice = arr.slice(i, j).reduce((red, cur) => red + cur, 0)
+     if(sumSlice > maxSequenceArr[0]) {
+       maxSequenceArr[0] = sumSlice;
+     }
+     
+    }
+  }
+  return maxSequenceArr[0]
+}
+
+// Best practice
+
+var maxSequence = function(arr){
+  var min = 0, ans = 0, i, sum = 0;
+  for (i = 0; i < arr.length; ++i) {
+    sum += arr[i];
+    min = Math.min(sum, min);
+    ans = Math.max(ans, sum - min);
+  }
+  return ans;
+}
+
+// Explanation 1 : https://en.wikipedia.org/wiki/Maximum_subarray_problem
+// Explanation 2 : It took me a while to figure this out.
+
+// If you have a sequence of 8 numbers and the run of numbers from 3 - 6 gives the greatest sum, that value is the same as the numbers 1 - 6 minus the numbers 1 - 2. In the function shown above SUM is the current sum of numbers starting from the 0 index. MIN is the running least sum starting from the 0 index. ANS is the running highest difference between the two sets. When the index is 6, the SUM, MIN and ANS values are shown below. 2 minus -4 = 6. When the index is 7 or 8 the ANS value will not be any greater, so the final value returned is 6.
+
+// [-2, 1, -3, 4, -1, 2, 1, -5, 4]
+// 0, 1, 2, 3, 4, 5, 6, 7, 8
+// SUM_2_
+// MIN-4_ _ANS_6
+
+// Duplicate Encoder
+// https://www.codewars.com/kata/54b42f9314d9229fd6000d9c/train/javascript
+
+function duplicateEncode(word) {
+	let wordArr = word.toLowerCase().split('');
+	let encArr = []
+	for (let i = 0; i < word.length; i++) {
+		let arrCheck = [];
+		for (let j = 0; j < word.length; j++) {
+			if (wordArr[i] === wordArr[j]) {
+				
+				arrCheck.push(wordArr[i]);
+			}
+		
+			} if (arrCheck.length > 1) {
+				encArr.push(`)`)
+			} else {
+				encArr.push(`(`)
+
+		}
+	} return encArr.join('')
+}
+
+// best practice
+
+function duplicateEncode(word){
+  return word
+    .toLowerCase()
+    .split('')
+    .map( function (a, i, w) {
+      return w.indexOf(a) == w.lastIndexOf(a) ? '(' : ')'
+    })
+    .join('');
+}
+
+// Isograms
+// https://www.codewars.com/kata/54ba84be607a92aa900000f1/train/javascript
+
+function isIsogram(str){
+  let strSet = new Set([...str.toLowerCase()]);
+  return strSet.size === str.length;
+}
+
+// best practice 
+
+function isIsogram(str){ 
+  return !/(\w).*\1/i.test(str)
+}
+
 // Is n divisible by x and y?
 // https://www.codewars.com/kata/5545f109004975ea66000086/train/javascript
 
